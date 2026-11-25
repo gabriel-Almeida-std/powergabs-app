@@ -311,6 +311,7 @@ Nomes de teste em inglês com crases, padrão Arrange / Act / Assert. Comando: `
 | Data | Decisão | Motivo |
 |---|---|---|
 | 24/11/2026 | Autenticação local (Room + PBKDF2, 120 000 iterações, sal de 16 bytes). | Firebase removido pelo responsável; PBKDF2 está no `javax.crypto`, sem biblioteca extra. |
+| 24/11/2026 | Hash guardado como `algoritmo:iterações:hash`; `PBKDF2WithHmacSHA256` com reserva `PBKDF2WithHmacSHA1` no Android 7. | O SHA-256 no PBKDF2 só existe a partir da API 26; guardar o algoritmo garante que a verificação use os mesmos parâmetros do cadastro. |
 | 24/11/2026 | `java.time` com desugaring. | Datas claras e testáveis com `minSdk 24`. |
 | 24/11/2026 | Categorias, equipamentos e idiomas como constantes. | São fixos na API e já foram confirmados; evita requisições extras. |
 | 24/11/2026 | Descrição HTML convertida para texto simples no mapper. | Compose `Text` não renderiza HTML; texto simples funciona offline e é testável. |

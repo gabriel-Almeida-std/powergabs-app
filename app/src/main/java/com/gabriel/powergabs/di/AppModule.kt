@@ -6,7 +6,10 @@ import com.gabriel.powergabs.core.network.AndroidNetworkMonitor
 import com.gabriel.powergabs.core.network.NetworkMonitor
 import com.gabriel.powergabs.core.time.SystemTimeProvider
 import com.gabriel.powergabs.core.time.TimeProvider
+import com.gabriel.powergabs.data.auth.AuthRepositoryImpl
+import com.gabriel.powergabs.data.auth.PasswordHasher
 import com.gabriel.powergabs.data.local.AppDatabase
+import com.gabriel.powergabs.domain.repository.AuthRepository
 import com.gabriel.powergabs.data.remote.NetworkFactory
 import com.gabriel.powergabs.data.repository.ExerciseRepositoryImpl
 import com.gabriel.powergabs.data.repository.WorkoutRepositoryImpl
@@ -45,6 +48,10 @@ val dataModule = module {
     // Repositórios: a interface (domain) é ligada à implementação (data).
     single<ExerciseRepository> { ExerciseRepositoryImpl(api = get(), dao = get(), timeProvider = get(), dispatchers = get()) }
     single<WorkoutRepository> { WorkoutRepositoryImpl(dao = get(), dispatchers = get()) }
+
+    // Autenticação local.
+    single { PasswordHasher() }
+    single<AuthRepository> { AuthRepositoryImpl(userDao = get(), hasher = get(), timeProvider = get(), dispatchers = get()) }
 }
 
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */

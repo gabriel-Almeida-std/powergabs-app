@@ -88,7 +88,7 @@
 - **Relacionado:** RNF01, RNF06, RN11 · Seções 6 e 7
 - **Commit:** `feat: implementa repositorios offline first com testes`
 
-### [ ] T13 — Autenticação local + testes
+### [x] T13 — Autenticação local + testes
 - **Descrição:** `PasswordHasher` (PBKDF2) e `AuthRepositoryImpl` (cadastro, login, sessão, logout).
 - **Pronto quando:** testes de hash e do repositório passam.
 - **Relacionado:** RF01–RF04, RNF03 · Seção 13

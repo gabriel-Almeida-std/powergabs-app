@@ -70,3 +70,16 @@ Novas classes: `ExerciseMapperTest` (RN06, imagem/vídeo principal), `HtmlTextTe
 | Correções aplicadas | Nenhuma |
 
 Novas classes: `ExerciseRepositoryImplTest` (paginação tudo-ou-nada, transação, conversão de IOException/HttpException/SerializationException/banco), `WorkoutRepositoryImplTest` (inserção, duplicado, leitura e datas de conclusão).
+
+## 2026-11-24 20:43 — T13: autenticação local
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 124 |
+| Aprovados | 124 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Novas classes: `PasswordHasherTest` (RNF03), `AuthRepositoryImplTest` (RF01–RF04, CA02, CA04, CA06).
