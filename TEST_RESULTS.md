@@ -122,3 +122,16 @@ Nova classe: `AuthViewModelsTest` (CA01–CA04). Verificado também no emulador:
 | Correções aplicadas | Nenhuma |
 
 Nova classe: `GoalViewModelTest` (RF04, RF05). Verificado no emulador: grade 2×2, card selecionado com borda `primary` e pedido de permissão de notificação (API 37).
+
+## 2026-11-24 21:00 — T17: tela de grupo muscular
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 146 |
+| Aprovados | 146 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Nova classe: `MuscleGroupViewModelTest` (RF06, RF09, CA16).

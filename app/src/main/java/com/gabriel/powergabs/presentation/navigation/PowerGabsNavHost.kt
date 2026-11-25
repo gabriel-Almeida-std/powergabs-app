@@ -4,10 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.gabriel.powergabs.presentation.components.EmptyState
 import com.gabriel.powergabs.presentation.screens.auth.LoginRoute as LoginScreenRoute
 import com.gabriel.powergabs.presentation.screens.auth.RegisterRoute as RegisterScreenRoute
 import com.gabriel.powergabs.presentation.screens.goal.GoalRoute as GoalScreenRoute
+import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupRoute as MuscleGroupScreenRoute
 
 /**
  * Grafo de navegação type-safe. Cada `composable<Rota>` liga uma rota à sua tela;
@@ -31,7 +33,15 @@ fun PowerGabsNavHost(startDestination: Any) {
                 onOpenAbout = { navController.navigate(AboutRoute) },
             )
         }
-        composable<MuscleGroupRoute> { EmptyState(message = "Grupo muscular") }
+        composable<MuscleGroupRoute> { entry ->
+            val route = entry.toRoute<MuscleGroupRoute>()
+            MuscleGroupScreenRoute(
+                goal = route.goal,
+                onBack = { navController.popBackStack() },
+                onBuildWorkout = { goal, group -> navController.navigate(ExerciseListRoute(goal, group)) },
+            )
+        }
+        composable<ExerciseListRoute> { EmptyState(message = "Exercícios") }
         composable<WorkoutRoute> { EmptyState(message = "Meu treino") }
         composable<AboutRoute> { EmptyState(message = "Sobre") }
     }

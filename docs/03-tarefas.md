@@ -112,7 +112,7 @@
 - **Relacionado:** RF05, RF04 · CA06
 - **Commit:** `feat: implementa tela de selecao de objetivo`
 
-### [ ] T17 — Tela de grupo muscular
+### [x] T17 — Tela de grupo muscular
 - **Descrição:** `MuscleGroupViewModel` + tela com chips e aviso de descanso + testes.
 - **Relacionado:** RF06, RF09 · CA16
 - **Commit:** `feat: implementa tela de grupo muscular com aviso de descanso`
