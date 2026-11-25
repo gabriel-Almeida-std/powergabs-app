@@ -161,3 +161,16 @@ Nova classe: `ExerciseListViewModelTest` (CA12–CA16). Verificado no emulador c
 | Correções aplicadas | No emulador, o vídeo falhou com `c2.goldfish.h264.decoder` (erro de MediaCodec); corrigido com um `MediaCodecSelector` que prefere o decodificador de software. Após a correção, o vídeo do Supino reto reproduziu. |
 
 Nova classe: `ExerciseDetailsViewModelTest` (CA17–CA19). Verificado no emulador: detalhes em português, chips de músculos/equipamentos, vídeo e "Adicionar ao treino" → "Já está no treino".
+
+## 2026-11-24 21:15 — T20: Meu treino
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 167 |
+| Aprovados | 167 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Nova classe: `WorkoutViewModelTest` (CA20–CA22). Verificado no emulador: marcar como feito e registrar esforço 4 de 5.

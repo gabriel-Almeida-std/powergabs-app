@@ -12,6 +12,7 @@ import com.gabriel.powergabs.presentation.screens.details.ExerciseDetailsRoute a
 import com.gabriel.powergabs.presentation.screens.exercises.ExerciseListRoute as ExerciseListScreenRoute
 import com.gabriel.powergabs.presentation.screens.goal.GoalRoute as GoalScreenRoute
 import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupRoute as MuscleGroupScreenRoute
+import com.gabriel.powergabs.presentation.screens.workout.WorkoutRoute as WorkoutScreenRoute
 
 /**
  * Grafo de navegação type-safe. Cada `composable<Rota>` liga uma rota à sua tela;
@@ -60,7 +61,13 @@ fun PowerGabsNavHost(startDestination: Any) {
                 onBack = { navController.popBackStack() },
             )
         }
-        composable<WorkoutRoute> { EmptyState(message = "Meu treino") }
+        composable<WorkoutRoute> {
+            WorkoutScreenRoute(
+                onBack = { navController.popBackStack() },
+                // Volta para a tela de objetivo (início do grafo do usuário logado).
+                onChooseGoal = { navController.popBackStack(GoalRoute, inclusive = false) },
+            )
+        }
         composable<AboutRoute> { EmptyState(message = "Sobre") }
     }
 }

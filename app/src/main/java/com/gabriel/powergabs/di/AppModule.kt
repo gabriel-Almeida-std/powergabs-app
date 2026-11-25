@@ -35,6 +35,7 @@ import com.gabriel.powergabs.presentation.screens.details.ExerciseDetailsViewMod
 import com.gabriel.powergabs.presentation.screens.exercises.ExerciseListViewModel
 import com.gabriel.powergabs.presentation.screens.goal.GoalViewModel
 import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupViewModel
+import com.gabriel.powergabs.presentation.screens.workout.WorkoutViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.factoryOf
@@ -100,6 +101,7 @@ val presentationModule = module {
     viewModelOf(::LoginViewModel)
     viewModelOf(::RegisterViewModel)
     viewModelOf(::GoalViewModel)
+    viewModelOf(::WorkoutViewModel)
     viewModel { params -> MuscleGroupViewModel(goal = params.get(), observeRestWarning = get()) }
     viewModel { params ->
         ExerciseListViewModel(

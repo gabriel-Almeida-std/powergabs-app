@@ -127,7 +127,7 @@
 - **Relacionado:** RF10, RF11, RF12 · CA17–CA19
 - **Commit:** `feat: implementa detalhes do exercicio com video`
 
-### [ ] T20 — Meu treino
+### [x] T20 — Meu treino
 - **Descrição:** `WorkoutViewModel` + tela com filtro, "Marcar como feito" e esforço 1–5 + testes.
 - **Relacionado:** RF13–RF15 · CA20–CA22
 - **Commit:** `feat: implementa tela meu treino`
