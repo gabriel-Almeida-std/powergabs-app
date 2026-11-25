@@ -187,3 +187,88 @@ Nova classe: `WorkoutViewModelTest` (CA20–CA22). Verificado no emulador: marca
 | Correções aplicadas | Teste manual no emulador: o WorkManager recusou a execução forçada antes do horário (comportamento esperado). Para ver a notificação, um build temporário com atraso zero (não commitado) foi instalado; a notificação "Hora de treinar!" apareceu e o código voltou ao atraso calculado. |
 
 Nova classe: `ReminderSchedulerTest` (CA24: KEEP, intervalo de 1 dia e atraso até as 18:00).
+
+---
+
+## 2026-11-24 21:31 — T23: validação final (execução limpa)
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew clean testDebugUnitTest` |
+| Total | 168 |
+| Aprovados | 168 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Durante a validação no emulador: ícones da barra de status ilegíveis sobre a faixa offline (commit `fix: ajusta cor dos icones da barra de status com a faixa offline`) e crédito das fontes ajustado ao texto da OFL. |
+
+### Testes por classe
+
+| Camada | Classe | Testes |
+|---|---|---|
+| domain/rule | `PrescriptionRulesTest` | 4 |
+| domain/rule | `ExerciseSelectionRulesTest` | 8 |
+| domain/rule | `ExerciseCatalogRulesTest` | 9 |
+| domain/rule | `CachePolicyTest` | 4 |
+| domain/rule | `RestWarningRulesTest` | 5 |
+| domain/rule | `WorkoutRulesTest` | 8 |
+| domain/rule | `CredentialsRulesTest` | 7 |
+| domain/rule | `ReminderRulesTest` | 3 |
+| domain/usecase | `AuthUseCasesTest` | 6 |
+| domain/usecase | `ExerciseUseCasesTest` | 9 |
+| domain/usecase | `WorkoutUseCasesTest` | 13 |
+| data | `ExerciseInfoDtoTest` | 3 |
+| data | `ExerciseMapperTest` | 10 |
+| data | `HtmlTextTest` | 5 |
+| data | `WorkoutMapperTest` | 3 |
+| data | `ExerciseRepositoryImplTest` | 8 |
+| data | `WorkoutRepositoryImplTest` | 5 |
+| data | `PasswordHasherTest` | 7 |
+| data | `AuthRepositoryImplTest` | 7 |
+| data | `ReminderSchedulerTest` | 1 |
+| presentation | `MainViewModelTest` | 2 |
+| presentation | `FormattersTest` | 6 |
+| presentation | `AuthViewModelsTest` | 7 |
+| presentation | `GoalViewModelTest` | 3 |
+| presentation | `MuscleGroupViewModelTest` | 4 |
+| presentation | `ExerciseListViewModelTest` | 8 |
+| presentation | `ExerciseDetailsViewModelTest` | 6 |
+| presentation | `WorkoutViewModelTest` | 7 |
+| **Total** | | **168** |
+
+### Critérios de aceite → verificação
+
+Legenda: **T** = teste unitário · **E** = evidência (captura em `docs/evidencias/`) · **M** = verificação manual no emulador (Medium Phone, API 37).
+
+| CA | Descrição resumida | Verificação |
+|---|---|---|
+| CA01 | Cadastro com dados válidos entra no app | T (`AuthUseCasesTest`, `AuthRepositoryImplTest`) · M |
+| CA02 | E-mail já cadastrado é recusado | T (`AuthRepositoryImplTest`, `AuthViewModelsTest`) |
+| CA03 | Senha curta ou confirmação diferente | T (`CredentialsRulesTest`, `AuthViewModelsTest`) · E 02 |
+| CA04 | Credenciais erradas → mensagem genérica | T (`AuthRepositoryImplTest`, `AuthViewModelsTest`) · E 19 |
+| CA05 | Sessão mantida, abre sem internet | T (`MainViewModelTest`) · E 11 |
+| CA06 | Logout volta ao login | T (`GoalViewModelTest`, `AuthRepositoryImplTest`) · E 19 |
+| CA07 | Força mostra "3–5 × 3–6 · 120–180 s" | T (`PrescriptionRulesTest`, `FormattersTest`) · E 05 |
+| CA08 | Força só com Barra/Halteres | T (`ExerciseSelectionRulesTest`, `ExerciseUseCasesTest`) · E 05 |
+| CA09 | Condicionamento inclui Cardio | T (`ExerciseSelectionRulesTest`, `ExerciseUseCasesTest`) |
+| CA10 | Nome em português, senão inglês, senão descartado | T (`ExerciseCatalogRulesTest`, `ExerciseMapperTest`) · E 05 |
+| CA11 | Imagem primeiro e sem duplicados | T (`ExerciseCatalogRulesTest`) · E 05 |
+| CA12 | Cache < 24 h não faz requisição | T (`CachePolicyTest`, `ExerciseUseCasesTest`) · M (troca de objetivo sem nova busca) |
+| CA13 | Falha com cache → dados + Snackbar | T (`ExerciseListViewModelTest`) |
+| CA14 | Falha sem cache → erro + "Tentar novamente" | T (`ExerciseListViewModelTest`) · E 15 |
+| CA15 | Pull-to-refresh força; offline avisa e mantém cache | T (`ExerciseUseCasesTest`, `ExerciseListViewModelTest`) · E 13 |
+| CA16 | Aviso de descanso (treinou ontem) sem bloquear | T (`RestWarningRulesTest`, `WorkoutUseCasesTest`, `MuscleGroupViewModelTest`, `ExerciseListViewModelTest`) |
+| CA17 | Detalhes offline | T (`ExerciseDetailsViewModelTest`) · E 14 |
+| CA18 | Vídeo indisponível / offline | T (`ExerciseDetailsViewModelTest`) · E 07, 14 |
+| CA19 | Adicionar ao treino sem duplicar, com prescrição | T (`WorkoutRulesTest`, `WorkoutUseCasesTest`, `ExerciseDetailsViewModelTest`) · M |
+| CA20 | Filtro "Feitos" | T (`WorkoutRulesTest`, `WorkoutUseCasesTest`, `WorkoutViewModelTest`) |
+| CA21 | Marcar como feito, sem volta | T (`WorkoutRulesTest`, `WorkoutUseCasesTest`) · E 08 |
+| CA22 | Esforço 1–5 só para feitos | T (`WorkoutRulesTest`, `WorkoutUseCasesTest`, `WorkoutViewModelTest`) · E 08 |
+| CA23 | Faixa "sem internet" | T (`MainViewModelTest`) · E 11–16 |
+| CA24 | Lembrete diário às 18:00 | T (`ReminderRulesTest`, `ReminderSchedulerTest`) · E 10 · M (job agendado no JobScheduler) |
+| CA25 | Tela "Sobre" com wger, licença e aviso de saúde | E 09 |
+
+### Observações da verificação manual
+
+- A API real da wger foi consultada no emulador: Força + Peito = 25 exercícios; Hipertrofia + Peito = 89 (90 na API, 1 duplicado removido); Hipertrofia + Pernas = 235 (3 páginas).
+- O aviso de descanso (CA16) não tem captura porque depende de um exercício concluído no dia anterior; está coberto por testes com relógio fixo.
+- A notificação foi exibida com um build temporário de atraso zero (não commitado), porque o WorkManager recusa execução forçada antes do horário agendado.

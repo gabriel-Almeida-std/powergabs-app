@@ -144,7 +144,7 @@
 
 ## Validação
 
-### [ ] T23 — Testes finais, evidências e README
+### [x] T23 — Testes finais, evidências e README
 - **Descrição:** rodar a suíte completa, registrar no `TEST_RESULTS.md` com a tabela CA → verificação, capturar telas no emulador (inclusive sem internet) em `docs/evidencias/`, README completo.
 - **Relacionado:** todos
 - **Commit:** `docs: registra validacao final, evidencias e README`
