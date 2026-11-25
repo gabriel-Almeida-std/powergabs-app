@@ -31,6 +31,7 @@ import com.gabriel.powergabs.domain.usecase.RegisterUseCase
 import com.gabriel.powergabs.presentation.navigation.MainViewModel
 import com.gabriel.powergabs.presentation.screens.auth.LoginViewModel
 import com.gabriel.powergabs.presentation.screens.auth.RegisterViewModel
+import com.gabriel.powergabs.presentation.screens.exercises.ExerciseListViewModel
 import com.gabriel.powergabs.presentation.screens.goal.GoalViewModel
 import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupViewModel
 import kotlinx.coroutines.Dispatchers
@@ -99,6 +100,15 @@ val presentationModule = module {
     viewModelOf(::RegisterViewModel)
     viewModelOf(::GoalViewModel)
     viewModel { params -> MuscleGroupViewModel(goal = params.get(), observeRestWarning = get()) }
+    viewModel { params ->
+        ExerciseListViewModel(
+            goal = params.get(),
+            group = params.get(),
+            observeSuggestedExercises = get(),
+            refreshExercises = get(),
+            observeRestWarning = get(),
+        )
+    }
 }
 
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */

@@ -135,3 +135,16 @@ Nova classe: `GoalViewModelTest` (RF04, RF05). Verificado no emulador: grade 2×
 | Correções aplicadas | Nenhuma |
 
 Nova classe: `MuscleGroupViewModelTest` (RF06, RF09, CA16).
+
+## 2026-11-24 21:04 — T18: lista de exercícios sugeridos
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 154 |
+| Aprovados | 154 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Dois testes novos falharam na primeira execução por sincronização do próprio teste (`expectMostRecentItem` sem `advanceUntilIdle`); corrigidos no teste, sem mudança no código de produção. |
+
+Nova classe: `ExerciseListViewModelTest` (CA12–CA16). Verificado no emulador com a API real: Força + Peito = 25 exercícios, nomes em português, imagem primeiro e badge "3–5 × 3–6 · 120–180 s".

@@ -117,7 +117,7 @@
 - **Relacionado:** RF06, RF09 · CA16
 - **Commit:** `feat: implementa tela de grupo muscular com aviso de descanso`
 
-### [ ] T18 — Lista de exercícios sugeridos
+### [x] T18 — Lista de exercícios sugeridos
 - **Descrição:** `ExerciseListViewModel` + tela com prescrição, pull-to-refresh, "atualizado há…", Snackbar, estados + testes.
 - **Relacionado:** RF07, RF08, RF09 · CA07–CA15
 - **Commit:** `feat: implementa lista de exercicios sugeridos`
