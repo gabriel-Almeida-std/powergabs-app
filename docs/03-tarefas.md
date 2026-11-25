@@ -24,7 +24,7 @@
 - **Relacionado:** RNF04, RNF05 · Seção 4
 - **Commit:** `chore: configura dependencias da stack do projeto`
 
-### [ ] T03 — Tema da identidade visual
+### [x] T03 — Tema da identidade visual
 - **Descrição:** mover o tema para `presentation/theme/` (Color, Type, Theme, Dimens) conforme a identidade; `themes.xml` sem ActionBar; `MainActivity` com `enableEdgeToEdge`.
 - **Pronto quando:** o app abre com o tema PowerGabs, claro e escuro.
 - **Relacionado:** RNF09 · Seção 9.3

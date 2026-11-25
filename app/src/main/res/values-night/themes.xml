@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- No modo escuro, a janela já nasce escura: evita o "flash" branco ao abrir o app. -->
+    <style name="Theme.PowerGabs" parent="android:Theme.Material.NoActionBar" />
+</resources>

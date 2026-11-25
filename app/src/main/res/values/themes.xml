@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Tema da janela (antes do Compose desenhar). Sem ActionBar: a barra superior é do Compose.
+         As cores do app vêm do PowerGabsTheme (presentation/theme), não daqui. -->
     <style name="Theme.PowerGabs" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
