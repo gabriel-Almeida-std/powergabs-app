@@ -9,7 +9,7 @@ O usuário faz login, escolhe o objetivo (Hipertrofia, Força, Resistência ou C
 ## Regras de trabalho (leia antes de qualquer ação)
 
 1. Siga o Spec-Driven Development (SDD), nesta ordem: Especificação → Planejamento → Decomposição → Implementação → Validação. Não escreva código de produção antes de os documentos de especificação, planejamento e tarefas estarem aprovados por mim.
-2. Ao final de cada fase do SDD, pare e peça minha aprovação antes de seguir.
+2. Ao final de cada fase do SDD, pare e peça minha aprovação antes de seguir. *(Em 24/11/2026 o responsável concedeu autonomia total para seguir todas as fases até o fim, registrando cada fase em commit.)*
 3. Antes de qualquer ação que crie ou altere arquivos, explique o que vai fazer e por quê, e aguarde minha confirmação.
 4. Trabalhe uma tarefa por vez, na ordem de `docs/03-tarefas.md`. Ao concluir, marque a tarefa como concluída no arquivo.
 5. Não adicione funcionalidades, bibliotecas ou telas fora da especificação. Se achar que algo é necessário, pergunte.
@@ -45,13 +45,13 @@ Ficam em `docs/`, em Markdown:
 | Persistência | Room (com KSP) |
 | Imagens | Coil (com cache em disco) |
 | Vídeo | Media3 ExoPlayer |
-| Autenticação | Firebase Authentication (e-mail e senha), via Firebase BoM |
+| Autenticação | Local (e-mail e senha), com usuários e sessão no Room e senha com hash PBKDF2 (`javax.crypto`) |
 | Notificações | WorkManager + NotificationCompat |
 | Testes | JUnit 4, MockK, kotlinx-coroutines-test, Turbine |
 | Build | Gradle Kotlin DSL + Version Catalog (`gradle/libs.versions.toml`) |
 | SDK | `minSdk = 24` (Android 7.0); `compileSdk` e `targetSdk` na versão estável mais recente |
 
-Use as versões estáveis mais recentes e compatíveis entre si. Não use Hilt, Dagger, RxJava, LiveData, layouts XML nem Gson. Não adicione outros serviços do Firebase (Firestore, Analytics, Crashlytics etc.) sem perguntar.
+Use as versões estáveis mais recentes e compatíveis entre si. Não use Hilt, Dagger, RxJava, LiveData, layouts XML nem Gson. Não use Firebase nem outros serviços de nuvem (decisão do responsável em 24/11/2026).
 
 ## API: wger
 
@@ -68,11 +68,14 @@ Use as versões estáveis mais recentes e compatíveis entre si. Não use Hilt, 
 - A wger não exige chave de API para leitura. Mesmo assim, toda a configuração de rede fica centralizada no módulo Koin de dados (OkHttp com timeouts e, em build de depuração, `HttpLoggingInterceptor`).
 - Atribuição obrigatória: o conteúdo de exercícios é licenciado sob CC-BY-SA. A tela "Sobre" deve creditar a wger (https://wger.de) e citar a licença.
 
-## Firebase
+## Autenticação local
 
-- O arquivo `google-services.json` **não** é versionado: deve constar no `.gitignore`, e o README explica como obtê-lo. Confirme isso antes do primeiro commit que envolva o Firebase.
-- O domain não conhece o Firebase: existe uma interface `AuthRepository` no domain, implementada no data.
-- A sessão do Firebase fica salva no aparelho. Depois do primeiro login, o app abre sem internet.
+> Decisão do responsável (24/11/2026): o Firebase foi removido do projeto. A autenticação é feita localmente, no aparelho.
+
+- Usuários (e-mail + hash da senha com sal, PBKDF2WithHmacSHA256) ficam no Room. A senha nunca é gravada em texto puro.
+- O domain não conhece a implementação: existe uma interface `AuthRepository` no domain, implementada no data.
+- A sessão fica salva no Room. Depois do primeiro login, o app abre direto, com ou sem internet.
+- O "Meu treino" pertence ao usuário logado.
 
 ## Regras de negócio (camada Domain)
 
@@ -105,7 +108,7 @@ Os valores são faixas gerais de referência, exibidos como sugestão. O app nã
 ## Escopo
 
 Dentro do escopo:
-1. Login e cadastro com Firebase Authentication (e-mail e senha), incluindo logout.
+1. Login e cadastro locais (e-mail e senha, gravados no aparelho), incluindo logout.
 2. Seleção de objetivo (tela inicial após o login).
 3. Seleção do grupo muscular do dia.
 4. Lista de exercícios sugeridos, com a prescrição aplicada, pull-to-refresh e aviso de descanso.
@@ -126,8 +129,8 @@ Clean Architecture em um único módulo `:app`, com separação por pacotes e re
 presentation  →  domain  ←  data
 ```
 
-- **domain**: modelos, interfaces de repositório, casos de uso e regras de negócio. Kotlin puro: é **proibido** importar `android.*`, Retrofit, Room, Firebase, Media3 ou Koin.
-- **data**: implementa os repositórios do domain. Contém DTOs, entidades Room, DAOs, API Retrofit, integração com o Firebase, o Worker de notificação e os mappers. DTOs e entidades nunca saem desta camada.
+- **domain**: modelos, interfaces de repositório, casos de uso e regras de negócio. Kotlin puro: é **proibido** importar `android.*`, Retrofit, Room, Media3 ou Koin.
+- **data**: implementa os repositórios do domain. Contém DTOs, entidades Room, DAOs, API Retrofit, a autenticação local, o Worker de notificação e os mappers. DTOs e entidades nunca saem desta camada.
 - **presentation**: telas Compose, ViewModels, UiState e navegação. Acessa apenas casos de uso.
 - **di**: módulos Koin; é o único lugar que conhece todas as camadas.
 
@@ -144,7 +147,7 @@ com.<seunome>.powergabs/
 ├── data/
 │   ├── remote/            # WgerApi, DTOs
 │   ├── local/             # AppDatabase, DAOs, entidades
-│   ├── auth/              # implementação com Firebase
+│   ├── auth/              # autenticação local (hash de senha + sessão)
 │   ├── notification/      # Worker do lembrete diário
 │   ├── mapper/
 │   └── repository/        # implementações
@@ -173,7 +176,7 @@ com.<seunome>.powergabs/
 
 ## Qualidade e confiabilidade
 
-- **Erros:** o data converte exceções (sem rede, timeout, HTTP, JSON inválido, erros do Firebase) em `AppError`, devolvido dentro de `AppResult`. Nenhuma exceção previsível chega à UI sem tratamento. Mensagens para o usuário ficam em `strings.xml`, em português.
+- **Erros:** o data converte exceções (sem rede, timeout, HTTP, JSON inválido, erros de banco e de autenticação) em `AppError`, devolvido dentro de `AppResult`. Nenhuma exceção previsível chega à UI sem tratamento. Mensagens para o usuário ficam em `strings.xml`, em português.
 - **Estados de tela:** todo ViewModel expõe um `StateFlow<UiState>` que cobre carregando, sucesso, vazio e erro.
 - **Memory leaks:** ViewModels não guardam `Context`, `Activity` nem `View`; coroutines rodam em `viewModelScope`; o ExoPlayer é criado e liberado com `DisposableEffect`; Flows são coletados com `collectAsStateWithLifecycle`.
 - **Thread principal:** I/O sempre em `Dispatchers.IO`, injetado via `core` para poder ser trocado nos testes.
@@ -192,13 +195,14 @@ com.<seunome>.powergabs/
   - `docs:` documentação; `feat:` funcionalidade; `fix:` correção; `test:` testes; `refactor:` refatoração sem mudança de comportamento; `chore:` configuração e build.
   - Exemplos: `docs: adiciona especificação inicial do projeto`, `feat: implementa cache de exercícios com Room`, `test: adiciona testes da prescrição por objetivo`.
 - Os documentos do SDD são commitados antes de qualquer código de produção.
-- Antes de cada commit, confirmar que `local.properties` e `google-services.json` estão no `.gitignore`.
+- Antes de cada commit, confirmar que `local.properties` está no `.gitignore`.
+- Os commits não levam a linha `Co-Authored-By` (decisão do responsável).
 
 ## Entregáveis
 
 Ao longo do desenvolvimento, mantenha atualizados:
 
-1. **README.md** na raiz, com: nome e descrição; objetivo e problema resolvido; funcionalidades implementadas; tecnologias e bibliotecas; a API wger, com link e **justificativa da escolha**; arquitetura e camadas; estratégia Offline First; configuração e execução (incluindo o `google-services.json`); execução dos testes; evidências dos testes; limitações conhecidas e funcionalidades não implementadas; créditos das fontes e da wger.
+1. **README.md** na raiz, com: nome e descrição; objetivo e problema resolvido; funcionalidades implementadas; tecnologias e bibliotecas; a API wger, com link e **justificativa da escolha**; arquitetura e camadas; estratégia Offline First; configuração e execução; execução dos testes; evidências dos testes; limitações conhecidas e funcionalidades não implementadas; créditos das fontes e da wger.
 2. **Documentação SDD** em `docs/`.
 3. **TEST_RESULTS.md** na raiz.
 4. **APK de depuração** (`./gradlew assembleDebug`), sem assinatura de distribuição, copiado para `entrega/`.
