@@ -64,7 +64,7 @@
 
 ## Data
 
-### [ ] T09 — API Retrofit e DTOs
+### [x] T09 — API Retrofit e DTOs
 - **Descrição:** `WgerApi`, DTOs de `exerciseinfo`, OkHttp/Retrofit no `dataModule`.
 - **Pronto quando:** compila; desserialização testada com JSON real reduzido.
 - **Relacionado:** RF07 · Seção 3

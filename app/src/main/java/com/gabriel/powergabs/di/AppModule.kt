@@ -1,10 +1,12 @@
 package com.gabriel.powergabs.di
 
+import com.gabriel.powergabs.BuildConfig
 import com.gabriel.powergabs.core.dispatcher.AppDispatchers
 import com.gabriel.powergabs.core.network.AndroidNetworkMonitor
 import com.gabriel.powergabs.core.network.NetworkMonitor
 import com.gabriel.powergabs.core.time.SystemTimeProvider
 import com.gabriel.powergabs.core.time.TimeProvider
+import com.gabriel.powergabs.data.remote.NetworkFactory
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -23,5 +25,12 @@ val coreModule = module {
     single<NetworkMonitor> { AndroidNetworkMonitor(androidContext()) }
 }
 
+val dataModule = module {
+    // Rede: toda a configuração fica aqui (timeouts e log só em depuração).
+    single { NetworkFactory.json }
+    single { NetworkFactory.okHttpClient(enableLogging = BuildConfig.DEBUG) }
+    single { NetworkFactory.wgerApi(client = get(), json = get()) }
+}
+
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */
-val appModules = listOf(coreModule)
+val appModules = listOf(coreModule, dataModule)

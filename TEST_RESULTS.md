@@ -31,3 +31,16 @@ Classes: `PrescriptionRulesTest` (RN01), `ExerciseSelectionRulesTest` (RN02–RN
 | Correções aplicadas | Nenhuma |
 
 Novas classes: `AuthUseCasesTest` (RF01, RF02, RN15), `ExerciseUseCasesTest` (RF07, RF08, RF10, RN09), `WorkoutUseCasesTest` (RF09, RF12–RF15, RN10–RN14).
+
+## 2026-11-24 20:38 — T09: API Retrofit e DTOs
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 79 |
+| Aprovados | 79 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Nova classe: `ExerciseInfoDtoTest` (desserialização de JSON real reduzido, campos ausentes e JSON inválido).
