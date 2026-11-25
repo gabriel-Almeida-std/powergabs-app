@@ -31,6 +31,7 @@ import com.gabriel.powergabs.domain.usecase.RegisterUseCase
 import com.gabriel.powergabs.presentation.navigation.MainViewModel
 import com.gabriel.powergabs.presentation.screens.auth.LoginViewModel
 import com.gabriel.powergabs.presentation.screens.auth.RegisterViewModel
+import com.gabriel.powergabs.presentation.screens.goal.GoalViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.factoryOf
@@ -94,6 +95,7 @@ val presentationModule = module {
     viewModelOf(::MainViewModel)
     viewModelOf(::LoginViewModel)
     viewModelOf(::RegisterViewModel)
+    viewModelOf(::GoalViewModel)
 }
 
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */

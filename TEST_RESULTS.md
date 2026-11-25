@@ -109,3 +109,16 @@ Novas classes: `MainViewModelTest` (RF03, RF04, RF16), `FormattersTest` (badge d
 | Correções aplicadas | Nenhuma |
 
 Nova classe: `AuthViewModelsTest` (CA01–CA04). Verificado também no emulador: erros de campo no cadastro e entrada no app após criar a conta.
+
+## 2026-11-24 20:57 — T16: tela de objetivo
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 142 |
+| Aprovados | 142 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Nova classe: `GoalViewModelTest` (RF04, RF05). Verificado no emulador: grade 2×2, card selecionado com borda `primary` e pedido de permissão de notificação (API 37).

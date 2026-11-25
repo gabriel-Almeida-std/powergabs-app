@@ -45,6 +45,7 @@
     <string name="goal_endurance_description">Mais repetições, menos descanso</string>
     <string name="goal_conditioning">Condicionamento</string>
     <string name="goal_conditioning_description">Grupo do dia + exercícios de cardio</string>
+    <string name="action_continue">Continuar</string>
     <string name="action_my_workout">Meu treino</string>
     <string name="action_about">Sobre</string>
     <string name="action_logout">Sair</string>

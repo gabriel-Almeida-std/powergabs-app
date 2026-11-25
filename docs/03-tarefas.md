@@ -107,7 +107,7 @@
 - **Relacionado:** RF01, RF02, RF04 · CA01–CA04
 - **Commit:** `feat: implementa telas de login e cadastro`
 
-### [ ] T16 — Tela de objetivo
+### [x] T16 — Tela de objetivo
 - **Descrição:** grade 2×2 de objetivos, ações (Meu treino, Sobre, Sair), pedido de permissão de notificação (API 33+).
 - **Relacionado:** RF05, RF04 · CA06
 - **Commit:** `feat: implementa tela de selecao de objetivo`
