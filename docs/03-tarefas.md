@@ -76,7 +76,7 @@
 - **Relacionado:** RNF01 · Seção 5
 - **Commit:** `feat: adiciona banco Room com cache, usuarios e treino`
 
-### [ ] T11 — Mappers + testes
+### [x] T11 — Mappers + testes
 - **Descrição:** DTO → entidade (idioma, imagem principal, vídeo, HTML → texto), entidade → domain, treino ↔ entidade.
 - **Pronto quando:** testes dos mappers passam.
 - **Relacionado:** RN06 · Seção 2.4
