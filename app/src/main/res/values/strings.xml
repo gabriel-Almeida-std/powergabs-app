@@ -1,3 +1,173 @@
 <resources>
     <string name="app_name">PowerGabs</string>
+
+    <!-- Geral -->
+    <string name="action_back">Voltar</string>
+    <string name="action_retry">Tentar novamente</string>
+    <string name="offline_banner">Você está sem internet</string>
+
+    <!-- Erros (ErrorMessageMapper) -->
+    <string name="error_network">Não foi possível carregar os exercícios. Verifique sua conexão.</string>
+    <string name="error_http">O servidor da wger não respondeu como esperado. Tente novamente mais tarde.</string>
+    <string name="error_serialization">Os dados recebidos vieram em um formato inesperado.</string>
+    <string name="error_database">Não foi possível acessar os dados salvos no aparelho.</string>
+    <string name="error_unknown">Algo deu errado. Tente novamente.</string>
+    <string name="error_refresh_offline">Sem internet: não foi possível atualizar.</string>
+
+    <!-- Login e cadastro -->
+    <string name="login_title">Entrar</string>
+    <string name="login_subtitle">Seu treino, do seu jeito, até sem internet.</string>
+    <string name="field_email">E-mail</string>
+    <string name="field_password">Senha</string>
+    <string name="field_password_confirmation">Confirmar senha</string>
+    <string name="action_login">Entrar</string>
+    <string name="action_go_to_register">Criar conta</string>
+    <string name="register_title">Criar conta</string>
+    <string name="register_subtitle">A conta fica salva apenas neste aparelho.</string>
+    <string name="action_register">Criar conta</string>
+    <string name="action_go_to_login">Já tenho conta</string>
+    <string name="action_show_password">Mostrar senha</string>
+    <string name="action_hide_password">Ocultar senha</string>
+    <string name="error_email_empty">Informe o e-mail.</string>
+    <string name="error_email_invalid">Informe um e-mail válido, como nome@exemplo.com.</string>
+    <string name="error_password_empty">Informe a senha.</string>
+    <string name="error_password_too_short">A senha precisa ter pelo menos 6 caracteres.</string>
+    <string name="error_confirmation_mismatch">As senhas não são iguais.</string>
+    <string name="error_invalid_credentials">E-mail ou senha incorretos.</string>
+    <string name="error_email_already_registered">Já existe uma conta com este e-mail.</string>
+
+    <!-- Objetivo -->
+    <string name="goal_title">Qual é o seu objetivo?</string>
+    <string name="goal_subtitle">A prescrição de séries, repetições e descanso segue o objetivo escolhido.</string>
+    <string name="goal_hypertrophy">Hipertrofia</string>
+    <string name="goal_hypertrophy_description">Ganho de massa muscular</string>
+    <string name="goal_strength">Força</string>
+    <string name="goal_strength_description">Cargas altas com barra e halteres</string>
+    <string name="goal_endurance">Resistência</string>
+    <string name="goal_endurance_description">Mais repetições, menos descanso</string>
+    <string name="goal_conditioning">Condicionamento</string>
+    <string name="goal_conditioning_description">Grupo do dia + exercícios de cardio</string>
+    <string name="action_my_workout">Meu treino</string>
+    <string name="action_about">Sobre</string>
+    <string name="action_logout">Sair</string>
+    <string name="logged_as">Conectado como %1$s</string>
+
+    <!-- Grupo muscular -->
+    <string name="muscle_group_title">Grupo muscular do dia</string>
+    <string name="muscle_group_subtitle">Objetivo: %1$s</string>
+    <string name="action_build_workout">Montar treino</string>
+    <string name="group_abs">Abdômen</string>
+    <string name="group_arms">Braços</string>
+    <string name="group_back">Costas</string>
+    <string name="group_calves">Panturrilhas</string>
+    <string name="group_cardio">Cardio</string>
+    <string name="group_chest">Peito</string>
+    <string name="group_legs">Pernas</string>
+    <string name="group_shoulders">Ombros</string>
+    <string name="rest_warning">Você treinou %1$s ontem. Que tal descansar esse grupo hoje? Você ainda pode continuar.</string>
+
+    <!-- Lista de exercícios -->
+    <string name="exercise_list_subtitle">%1$s · %2$d exercícios</string>
+    <string name="updated_just_now">Atualizado agora</string>
+    <plurals name="updated_minutes_ago">
+        <item quantity="one">Atualizado há %d minuto</item>
+        <item quantity="many">Atualizado há %d minutos</item>
+        <item quantity="other">Atualizado há %d minutos</item>
+    </plurals>
+    <plurals name="updated_hours_ago">
+        <item quantity="one">Atualizado há %d hora</item>
+        <item quantity="many">Atualizado há %d horas</item>
+        <item quantity="other">Atualizado há %d horas</item>
+    </plurals>
+    <plurals name="updated_days_ago">
+        <item quantity="one">Atualizado há %d dia</item>
+        <item quantity="many">Atualizado há %d dias</item>
+        <item quantity="other">Atualizado há %d dias</item>
+    </plurals>
+    <string name="exercise_list_empty">Nenhum exercício combina com este objetivo neste grupo.</string>
+    <string name="action_choose_other_group">Escolher outro grupo</string>
+    <string name="equipment_none">Sem equipamento</string>
+
+    <!-- Detalhes -->
+    <string name="details_prescription">Prescrição sugerida</string>
+    <string name="details_how_to">Como executar</string>
+    <string name="details_no_description">Este exercício ainda não tem descrição.</string>
+    <string name="details_muscles">Músculos</string>
+    <string name="details_secondary_muscles">Músculos secundários</string>
+    <string name="details_equipment">Equipamentos</string>
+    <string name="details_video">Vídeo de execução</string>
+    <string name="details_not_found">Este exercício não está mais salvo no aparelho.</string>
+    <string name="video_unavailable">Este exercício ainda não tem vídeo de execução.</string>
+    <string name="video_offline">O vídeo precisa de internet. A descrição e a imagem continuam disponíveis.</string>
+    <string name="video_error">Não foi possível reproduzir o vídeo agora.</string>
+    <string name="video_source">Fonte: wger.de</string>
+    <string name="action_add_to_workout">Adicionar ao treino</string>
+    <string name="already_in_workout">Já está no treino</string>
+    <string name="added_to_workout">Exercício adicionado ao seu treino.</string>
+    <string name="exercise_image">Imagem do exercício</string>
+    <string name="sets_reps_rest">%1$s séries × %2$s repetições · %3$s s de descanso</string>
+
+    <!-- Meu treino -->
+    <string name="workout_title">Meu treino</string>
+    <string name="filter_all">Todos</string>
+    <string name="filter_planned">Planejados</string>
+    <string name="filter_done">Feitos</string>
+    <string name="workout_empty">Seu treino está vazio.</string>
+    <string name="workout_empty_planned">Nenhum exercício planejado.</string>
+    <string name="workout_empty_done">Nenhum exercício feito ainda.</string>
+    <string name="action_choose_goal">Escolher um objetivo</string>
+    <string name="action_mark_done">Marcar como feito</string>
+    <string name="status_done">Feito</string>
+    <string name="effort_label">Esforço percebido</string>
+    <string name="effort_value">Esforço %1$d de 5</string>
+    <string name="workout_goal">%1$s · %2$s</string>
+
+    <!-- Sobre -->
+    <string name="about_title">Sobre</string>
+    <string name="about_description">O PowerGabs monta sugestões de treino de acordo com o seu objetivo e o grupo muscular do dia.</string>
+    <string name="about_health_title">Aviso de saúde</string>
+    <string name="about_health_warning">As sugestões são gerais e não substituem a orientação de um profissional de educação física.</string>
+    <string name="about_data_title">Dados dos exercícios</string>
+    <string name="about_data_credit">Exercícios, imagens e vídeos fornecidos pela wger (https://wger.de), um projeto open source. O conteúdo é licenciado sob Creative Commons Attribution-ShareAlike 4.0 (CC-BY-SA 4.0).</string>
+    <string name="about_open_wger">Abrir wger.de</string>
+    <string name="about_fonts_title">Fontes</string>
+    <string name="about_fonts_credit">Barlow e Barlow Condensed, de Jeremy Tribby, sob a SIL Open Font License 1.1.</string>
+    <string name="about_version">Versão %1$s</string>
+
+    <!-- Notificação -->
+    <string name="notification_channel_name">Lembrete diário</string>
+    <string name="notification_channel_description">Lembra você de treinar uma vez por dia.</string>
+    <string name="notification_title">Hora de treinar!</string>
+    <string name="notification_text">Escolha o grupo muscular do dia e veja sua prescrição.</string>
+
+    <!-- Músculos (IDs da wger, docs/01-especificacao.md seção 8.4) -->
+    <string name="muscle_1">Bíceps</string>
+    <string name="muscle_2">Deltoide anterior</string>
+    <string name="muscle_3">Serrátil anterior</string>
+    <string name="muscle_4">Peitoral maior</string>
+    <string name="muscle_5">Tríceps</string>
+    <string name="muscle_6">Reto abdominal</string>
+    <string name="muscle_7">Gastrocnêmio</string>
+    <string name="muscle_8">Glúteo máximo</string>
+    <string name="muscle_9">Trapézio</string>
+    <string name="muscle_10">Quadríceps</string>
+    <string name="muscle_11">Posterior de coxa</string>
+    <string name="muscle_12">Latíssimo do dorso</string>
+    <string name="muscle_13">Braquial</string>
+    <string name="muscle_14">Oblíquo externo</string>
+    <string name="muscle_15">Sóleo</string>
+
+    <!-- Equipamentos (IDs da wger, seção 8.2) -->
+    <string name="equipment_1">Barra</string>
+    <string name="equipment_2">Barra W</string>
+    <string name="equipment_3">Halteres</string>
+    <string name="equipment_4">Colchonete</string>
+    <string name="equipment_5">Bola suíça</string>
+    <string name="equipment_6">Barra fixa</string>
+    <string name="equipment_7">Peso corporal</string>
+    <string name="equipment_8">Banco</string>
+    <string name="equipment_9">Banco inclinado</string>
+    <string name="equipment_10">Kettlebell</string>
+    <string name="equipment_11">Elástico</string>
+    <string name="equipment_12">Polia</string>
 </resources>

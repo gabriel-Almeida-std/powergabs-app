@@ -15,8 +15,24 @@ import com.gabriel.powergabs.data.repository.ExerciseRepositoryImpl
 import com.gabriel.powergabs.data.repository.WorkoutRepositoryImpl
 import com.gabriel.powergabs.domain.repository.ExerciseRepository
 import com.gabriel.powergabs.domain.repository.WorkoutRepository
+import com.gabriel.powergabs.domain.usecase.AddToWorkoutUseCase
+import com.gabriel.powergabs.domain.usecase.LoginUseCase
+import com.gabriel.powergabs.domain.usecase.LogoutUseCase
+import com.gabriel.powergabs.domain.usecase.MarkExerciseDoneUseCase
+import com.gabriel.powergabs.domain.usecase.ObserveConnectivityUseCase
+import com.gabriel.powergabs.domain.usecase.ObserveExerciseDetailsUseCase
+import com.gabriel.powergabs.domain.usecase.ObserveRestWarningUseCase
+import com.gabriel.powergabs.domain.usecase.ObserveSessionUseCase
+import com.gabriel.powergabs.domain.usecase.ObserveSuggestedExercisesUseCase
+import com.gabriel.powergabs.domain.usecase.ObserveWorkoutUseCase
+import com.gabriel.powergabs.domain.usecase.RateEffortUseCase
+import com.gabriel.powergabs.domain.usecase.RefreshExercisesUseCase
+import com.gabriel.powergabs.domain.usecase.RegisterUseCase
+import com.gabriel.powergabs.presentation.navigation.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.factoryOf
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 /**
@@ -54,5 +70,27 @@ val dataModule = module {
     single<AuthRepository> { AuthRepositoryImpl(userDao = get(), hasher = get(), timeProvider = get(), dispatchers = get()) }
 }
 
+/** Casos de uso não guardam estado: `factory` cria um novo a cada injeção. */
+val domainModule = module {
+    factoryOf(::RegisterUseCase)
+    factoryOf(::LoginUseCase)
+    factoryOf(::LogoutUseCase)
+    factoryOf(::ObserveSessionUseCase)
+    factoryOf(::ObserveSuggestedExercisesUseCase)
+    factoryOf(::RefreshExercisesUseCase)
+    factoryOf(::ObserveExerciseDetailsUseCase)
+    factoryOf(::ObserveConnectivityUseCase)
+    factoryOf(::AddToWorkoutUseCase)
+    factoryOf(::ObserveWorkoutUseCase)
+    factoryOf(::MarkExerciseDoneUseCase)
+    factoryOf(::RateEffortUseCase)
+    factoryOf(::ObserveRestWarningUseCase)
+}
+
+/** ViewModels presos ao ciclo de vida da tela. Argumentos de rota chegam por `parametersOf`. */
+val presentationModule = module {
+    viewModelOf(::MainViewModel)
+}
+
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */
-val appModules = listOf(coreModule, dataModule)
+val appModules = listOf(coreModule, dataModule, domainModule, presentationModule)

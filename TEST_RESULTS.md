@@ -83,3 +83,16 @@ Novas classes: `ExerciseRepositoryImplTest` (paginação tudo-ou-nada, transaç�
 | Correções aplicadas | Nenhuma |
 
 Novas classes: `PasswordHasherTest` (RNF03), `AuthRepositoryImplTest` (RF01–RF04, CA02, CA04, CA06).
+
+## 2026-11-24 20:47 — T14: navegação, raiz e componentes
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 132 |
+| Aprovados | 132 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Novas classes: `MainViewModelTest` (RF03, RF04, RF16), `FormattersTest` (badge de prescrição CA07, "atualizado há…", mensagens de erro).

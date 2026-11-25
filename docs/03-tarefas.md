@@ -96,7 +96,7 @@
 
 ## Presentation
 
-### [ ] T14 — Navegação, raiz e componentes compartilhados
+### [x] T14 — Navegação, raiz e componentes compartilhados
 - **Descrição:** rotas, `PowerGabsRoot` + `MainViewModel` (sessão e conectividade), `OfflineBanner`, `StateViews`, `Logo`, `ErrorMessageMapper`, mapeadores de rótulos, ícones vetoriais (haltere e nuvem cortada).
 - **Pronto quando:** o app abre no login ou no objetivo conforme a sessão; testes do `MainViewModel` passam.
 - **Relacionado:** RF03, RF16 · Seção 9
