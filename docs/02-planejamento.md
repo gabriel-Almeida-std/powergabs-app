@@ -55,7 +55,7 @@ com.gabriel.powergabs/
 │   ├── rule/                  # PrescriptionRules, ExerciseSelectionRules, ExerciseCatalogRules, CachePolicy,
 │   │                          # RestWarningRules, WorkoutRules, CredentialsRules, ReminderRules
 │   ├── repository/            # ExerciseRepository, WorkoutRepository, AuthRepository
-│   └── usecase/               # um arquivo por caso de uso
+│   └── usecase/               # casos de uso agrupados por assunto (Auth, Exercise, Workout)
 ├── data/
 │   ├── remote/                # WgerApi, dto/
 │   ├── local/                 # AppDatabase, Converters, dao/, entity/

@@ -56,7 +56,7 @@
 - **Relacionado:** RN01–RN17 · Seção 2.4
 - **Commit:** `feat: implementa regras de negocio do dominio com testes`
 
-### [ ] T08 — Interfaces de repositório e casos de uso + testes
+### [x] T08 — Interfaces de repositório e casos de uso + testes
 - **Descrição:** `ExerciseRepository`, `WorkoutRepository`, `AuthRepository` e os casos de uso da seção 2.4, com testes (MockK).
 - **Pronto quando:** testes dos casos de uso passam.
 - **Relacionado:** RF01–RF16 · Seção 2.4

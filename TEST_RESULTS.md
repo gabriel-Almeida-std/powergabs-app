@@ -18,3 +18,16 @@
 | Correções aplicadas | Nenhuma |
 
 Classes: `PrescriptionRulesTest` (RN01), `ExerciseSelectionRulesTest` (RN02–RN05), `ExerciseCatalogRulesTest` (RN06–RN08), `CachePolicyTest` (RN09), `RestWarningRulesTest` (RN10), `WorkoutRulesTest` (RN11–RN14), `CredentialsRulesTest` (RN15), `ReminderRulesTest` (RN16).
+
+## 2026-11-24 20:37 — T08: casos de uso do domain
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 76 |
+| Aprovados | 76 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Novas classes: `AuthUseCasesTest` (RF01, RF02, RN15), `ExerciseUseCasesTest` (RF07, RF08, RF10, RN09), `WorkoutUseCasesTest` (RF09, RF12–RF15, RN10–RN14).
