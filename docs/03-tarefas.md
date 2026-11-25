@@ -44,7 +44,7 @@
 
 ## Domain
 
-### [ ] T06 — Modelos de domínio
+### [x] T06 — Modelos de domínio
 - **Descrição:** modelos da seção 2.3.
 - **Pronto quando:** compila sem imports Android.
 - **Relacionado:** RNF02 · Seção 2.3
