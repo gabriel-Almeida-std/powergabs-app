@@ -50,7 +50,7 @@
 - **Relacionado:** RNF02 · Seção 2.3
 - **Commit:** `feat: adiciona modelos de dominio`
 
-### [ ] T07 — Regras de negócio + testes
+### [x] T07 — Regras de negócio + testes
 - **Descrição:** `PrescriptionRules`, `ExerciseSelectionRules`, `ExerciseCatalogRules`, `CachePolicy`, `RestWarningRules`, `WorkoutRules`, `CredentialsRules`, `ReminderRules` e testes de cada RN.
 - **Pronto quando:** testes de RN01–RN16 passam.
 - **Relacionado:** RN01–RN17 · Seção 2.4
