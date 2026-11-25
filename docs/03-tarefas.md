@@ -149,6 +149,6 @@
 - **Relacionado:** todos
 - **Commit:** `docs: registra validacao final, evidencias e README`
 
-### [ ] T24 — APK de depuração
+### [x] T24 — APK de depuração
 - **Descrição:** `./gradlew assembleDebug` e cópia para `entrega/PowerGabs-debug.apk`.
 - **Commit:** `chore: adiciona APK de depuracao para entrega`
