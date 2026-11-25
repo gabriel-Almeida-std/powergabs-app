@@ -8,6 +8,7 @@ import androidx.navigation.toRoute
 import com.gabriel.powergabs.presentation.components.EmptyState
 import com.gabriel.powergabs.presentation.screens.auth.LoginRoute as LoginScreenRoute
 import com.gabriel.powergabs.presentation.screens.auth.RegisterRoute as RegisterScreenRoute
+import com.gabriel.powergabs.presentation.screens.details.ExerciseDetailsRoute as ExerciseDetailsScreenRoute
 import com.gabriel.powergabs.presentation.screens.exercises.ExerciseListRoute as ExerciseListScreenRoute
 import com.gabriel.powergabs.presentation.screens.goal.GoalRoute as GoalScreenRoute
 import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupRoute as MuscleGroupScreenRoute
@@ -51,7 +52,14 @@ fun PowerGabsNavHost(startDestination: Any) {
                 onOpenExercise = { id, goal -> navController.navigate(ExerciseDetailsRoute(id, goal)) },
             )
         }
-        composable<ExerciseDetailsRoute> { EmptyState(message = "Detalhes") }
+        composable<ExerciseDetailsRoute> { entry ->
+            val route = entry.toRoute<ExerciseDetailsRoute>()
+            ExerciseDetailsScreenRoute(
+                exerciseId = route.exerciseId,
+                goal = route.goal,
+                onBack = { navController.popBackStack() },
+            )
+        }
         composable<WorkoutRoute> { EmptyState(message = "Meu treino") }
         composable<AboutRoute> { EmptyState(message = "Sobre") }
     }

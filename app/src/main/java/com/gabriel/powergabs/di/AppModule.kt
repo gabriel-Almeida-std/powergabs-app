@@ -31,6 +31,7 @@ import com.gabriel.powergabs.domain.usecase.RegisterUseCase
 import com.gabriel.powergabs.presentation.navigation.MainViewModel
 import com.gabriel.powergabs.presentation.screens.auth.LoginViewModel
 import com.gabriel.powergabs.presentation.screens.auth.RegisterViewModel
+import com.gabriel.powergabs.presentation.screens.details.ExerciseDetailsViewModel
 import com.gabriel.powergabs.presentation.screens.exercises.ExerciseListViewModel
 import com.gabriel.powergabs.presentation.screens.goal.GoalViewModel
 import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupViewModel
@@ -107,6 +108,15 @@ val presentationModule = module {
             observeSuggestedExercises = get(),
             refreshExercises = get(),
             observeRestWarning = get(),
+        )
+    }
+    viewModel { params ->
+        ExerciseDetailsViewModel(
+            exerciseId = params.get(),
+            goal = params.get(),
+            observeDetails = get(),
+            addToWorkout = get(),
+            observeConnectivity = get(),
         )
     }
 }

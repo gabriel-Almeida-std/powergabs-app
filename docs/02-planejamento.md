@@ -316,4 +316,5 @@ Nomes de teste em inglês com crases, padrão Arrange / Act / Assert. Comando: `
 | 24/11/2026 | Categorias, equipamentos e idiomas como constantes. | São fixos na API e já foram confirmados; evita requisições extras. |
 | 24/11/2026 | Descrição HTML convertida para texto simples no mapper. | Compose `Text` não renderiza HTML; texto simples funciona offline e é testável. |
 | 24/11/2026 | Compose BOM 2026.09.00 em vez de 2026.11.01. | O 2026.11.01 (Compose 1.13) exige a plataforma 37.1; o SDK instalado tem a 37.0. |
+| 24/11/2026 | `MediaCodecSelector` que coloca decodificadores "goldfish" no fim da lista + `setEnableDecoderFallback(true)`. | No emulador, o `c2.goldfish.h264.decoder` falhou com os vídeos H.264 High Profile da wger; o decodificador de software do Android reproduz. Em aparelhos reais a ordem não muda. |
 | 24/11/2026 | Um único arquivo `AppModule.kt` com os quatro módulos Koin. | Projeto pequeno; mantém a visão de toda a injeção num lugar só. |

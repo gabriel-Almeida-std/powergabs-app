@@ -148,3 +148,16 @@ Nova classe: `MuscleGroupViewModelTest` (RF06, RF09, CA16).
 | Correções aplicadas | Dois testes novos falharam na primeira execução por sincronização do próprio teste (`expectMostRecentItem` sem `advanceUntilIdle`); corrigidos no teste, sem mudança no código de produção. |
 
 Nova classe: `ExerciseListViewModelTest` (CA12–CA16). Verificado no emulador com a API real: Força + Peito = 25 exercícios, nomes em português, imagem primeiro e badge "3–5 × 3–6 · 120–180 s".
+
+## 2026-11-24 21:13 — T19: detalhes do exercício e vídeo
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 160 |
+| Aprovados | 160 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | No emulador, o vídeo falhou com `c2.goldfish.h264.decoder` (erro de MediaCodec); corrigido com um `MediaCodecSelector` que prefere o decodificador de software. Após a correção, o vídeo do Supino reto reproduziu. |
+
+Nova classe: `ExerciseDetailsViewModelTest` (CA17–CA19). Verificado no emulador: detalhes em português, chips de músculos/equipamentos, vídeo e "Adicionar ao treino" → "Já está no treino".

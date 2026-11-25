@@ -122,7 +122,7 @@
 - **Relacionado:** RF07, RF08, RF09 · CA07–CA15
 - **Commit:** `feat: implementa lista de exercicios sugeridos`
 
-### [ ] T19 — Detalhes do exercício e vídeo
+### [x] T19 — Detalhes do exercício e vídeo
 - **Descrição:** `ExerciseDetailsViewModel` + tela com imagem, chips, prescrição, vídeo (ExoPlayer) e "Adicionar ao treino" + testes.
 - **Relacionado:** RF10, RF11, RF12 · CA17–CA19
 - **Commit:** `feat: implementa detalhes do exercicio com video`
