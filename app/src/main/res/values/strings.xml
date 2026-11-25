@@ -130,7 +130,7 @@
     <string name="about_data_credit">Exercícios, imagens e vídeos fornecidos pela wger (https://wger.de), um projeto open source. O conteúdo é licenciado sob Creative Commons Attribution-ShareAlike 4.0 (CC-BY-SA 4.0).</string>
     <string name="about_open_wger">Abrir wger.de</string>
     <string name="about_fonts_title">Fontes</string>
-    <string name="about_fonts_credit">Barlow e Barlow Condensed, de Jeremy Tribby, sob a SIL Open Font License 1.1.</string>
+    <string name="about_fonts_credit">Barlow e Barlow Condensed, de The Barlow Project Authors (github.com/jpt/barlow), sob a SIL Open Font License 1.1.</string>
     <string name="about_version">Versão %1$s</string>
 
     <!-- Notificação -->
