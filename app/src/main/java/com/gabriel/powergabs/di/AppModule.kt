@@ -6,6 +6,7 @@ import com.gabriel.powergabs.core.network.AndroidNetworkMonitor
 import com.gabriel.powergabs.core.network.NetworkMonitor
 import com.gabriel.powergabs.core.time.SystemTimeProvider
 import com.gabriel.powergabs.core.time.TimeProvider
+import com.gabriel.powergabs.data.local.AppDatabase
 import com.gabriel.powergabs.data.remote.NetworkFactory
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
@@ -30,6 +31,12 @@ val dataModule = module {
     single { NetworkFactory.json }
     single { NetworkFactory.okHttpClient(enableLogging = BuildConfig.DEBUG) }
     single { NetworkFactory.wgerApi(client = get(), json = get()) }
+
+    // Banco local (fonte da verdade) e DAOs.
+    single { AppDatabase.build(androidContext()) }
+    single { get<AppDatabase>().exerciseDao() }
+    single { get<AppDatabase>().userDao() }
+    single { get<AppDatabase>().workoutDao() }
 }
 
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */

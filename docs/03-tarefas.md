@@ -70,7 +70,7 @@
 - **Relacionado:** RF07 · Seção 3
 - **Commit:** `feat: adiciona cliente Retrofit da API wger`
 
-### [ ] T10 — Room: entidades, DAOs e banco
+### [x] T10 — Room: entidades, DAOs e banco
 - **Descrição:** entidades e DAOs da seção 5, `Converters`, `AppDatabase`, substituição transacional do grupo.
 - **Pronto quando:** compila (KSP gera o código) e o banco é registrado no Koin.
 - **Relacionado:** RNF01 · Seção 5
