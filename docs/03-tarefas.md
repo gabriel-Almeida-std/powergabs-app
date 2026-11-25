@@ -82,7 +82,7 @@
 - **Relacionado:** RN06 · Seção 2.4
 - **Commit:** `feat: implementa mappers de exercicios e treino com testes`
 
-### [ ] T12 — Repositórios de exercícios e treino + testes
+### [x] T12 — Repositórios de exercícios e treino + testes
 - **Descrição:** `safeApiCall`/`safeDbCall`, `ExerciseRepositoryImpl` (paginação tudo-ou-nada), `WorkoutRepositoryImpl`.
 - **Pronto quando:** testes de cache, falhas e duplicados passam.
 - **Relacionado:** RNF01, RNF06, RN11 · Seções 6 e 7

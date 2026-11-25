@@ -57,3 +57,16 @@ Nova classe: `ExerciseInfoDtoTest` (desserialização de JSON real reduzido, cam
 | Correções aplicadas | Nenhuma |
 
 Novas classes: `ExerciseMapperTest` (RN06, imagem/vídeo principal), `HtmlTextTest` (HTML → texto), `WorkoutMapperTest` (ida e volta da entidade).
+
+## 2026-11-24 20:42 — T12: repositórios Offline First
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 110 |
+| Aprovados | 110 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Novas classes: `ExerciseRepositoryImplTest` (paginação tudo-ou-nada, transação, conversão de IOException/HttpException/SerializationException/banco), `WorkoutRepositoryImplTest` (inserção, duplicado, leitura e datas de conclusão).

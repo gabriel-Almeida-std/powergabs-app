@@ -8,6 +8,10 @@ import com.gabriel.powergabs.core.time.SystemTimeProvider
 import com.gabriel.powergabs.core.time.TimeProvider
 import com.gabriel.powergabs.data.local.AppDatabase
 import com.gabriel.powergabs.data.remote.NetworkFactory
+import com.gabriel.powergabs.data.repository.ExerciseRepositoryImpl
+import com.gabriel.powergabs.data.repository.WorkoutRepositoryImpl
+import com.gabriel.powergabs.domain.repository.ExerciseRepository
+import com.gabriel.powergabs.domain.repository.WorkoutRepository
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -37,6 +41,10 @@ val dataModule = module {
     single { get<AppDatabase>().exerciseDao() }
     single { get<AppDatabase>().userDao() }
     single { get<AppDatabase>().workoutDao() }
+
+    // Repositórios: a interface (domain) é ligada à implementação (data).
+    single<ExerciseRepository> { ExerciseRepositoryImpl(api = get(), dao = get(), timeProvider = get(), dispatchers = get()) }
+    single<WorkoutRepository> { WorkoutRepositoryImpl(dao = get(), dispatchers = get()) }
 }
 
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */
