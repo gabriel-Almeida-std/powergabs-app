@@ -132,7 +132,7 @@
 - **Relacionado:** RF13–RF15 · CA20–CA22
 - **Commit:** `feat: implementa tela meu treino`
 
-### [ ] T21 — Tela Sobre
+### [x] T21 — Tela Sobre
 - **Descrição:** logo, crédito à wger (link), licença CC-BY-SA 4.0, fontes (OFL) e aviso de saúde.
 - **Relacionado:** RF18 · CA25
 - **Commit:** `feat: implementa tela sobre com atribuicao a wger`

@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.gabriel.powergabs.presentation.components.EmptyState
+import com.gabriel.powergabs.presentation.screens.about.AboutScreen
 import com.gabriel.powergabs.presentation.screens.auth.LoginRoute as LoginScreenRoute
 import com.gabriel.powergabs.presentation.screens.auth.RegisterRoute as RegisterScreenRoute
 import com.gabriel.powergabs.presentation.screens.details.ExerciseDetailsRoute as ExerciseDetailsScreenRoute
@@ -68,6 +68,6 @@ fun PowerGabsNavHost(startDestination: Any) {
                 onChooseGoal = { navController.popBackStack(GoalRoute, inclusive = false) },
             )
         }
-        composable<AboutRoute> { EmptyState(message = "Sobre") }
+        composable<AboutRoute> { AboutScreen(onBack = { navController.popBackStack() }) }
     }
 }
