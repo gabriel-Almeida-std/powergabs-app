@@ -252,11 +252,11 @@ Legenda: **T** = teste unitário · **E** = evidência (captura em `docs/evidenc
 | CA09 | Condicionamento inclui Cardio | T (`ExerciseSelectionRulesTest`, `ExerciseUseCasesTest`) |
 | CA10 | Nome em português, senão inglês, senão descartado | T (`ExerciseCatalogRulesTest`, `ExerciseMapperTest`) · E 05 |
 | CA11 | Imagem primeiro e sem duplicados | T (`ExerciseCatalogRulesTest`) · E 05 |
-| CA12 | Cache < 24 h não faz requisição | T (`CachePolicyTest`, `ExerciseUseCasesTest`) · M (troca de objetivo sem nova busca) |
+| CA12 | Cache < 24 h não faz requisição; expirado é renovado | T (`CachePolicyTest`, `ExerciseUseCasesTest`) · M (troca de objetivo sem nova busca) · E 21, 22 |
 | CA13 | Falha com cache → dados + Snackbar | T (`ExerciseListViewModelTest`) |
 | CA14 | Falha sem cache → erro + "Tentar novamente" | T (`ExerciseListViewModelTest`) · E 15 |
 | CA15 | Pull-to-refresh força; offline avisa e mantém cache | T (`ExerciseUseCasesTest`, `ExerciseListViewModelTest`) · E 13 |
-| CA16 | Aviso de descanso (treinou ontem) sem bloquear | T (`RestWarningRulesTest`, `WorkoutUseCasesTest`, `MuscleGroupViewModelTest`, `ExerciseListViewModelTest`) |
+| CA16 | Aviso de descanso (treinou ontem) sem bloquear | T (`RestWarningRulesTest`, `WorkoutUseCasesTest`, `MuscleGroupViewModelTest`, `ExerciseListViewModelTest`) · E 20, 21 |
 | CA17 | Detalhes offline | T (`ExerciseDetailsViewModelTest`) · E 14 |
 | CA18 | Vídeo indisponível / offline | T (`ExerciseDetailsViewModelTest`) · E 07, 14 |
 | CA19 | Adicionar ao treino sem duplicar, com prescrição | T (`WorkoutRulesTest`, `WorkoutUseCasesTest`, `ExerciseDetailsViewModelTest`) · M |
@@ -270,5 +270,5 @@ Legenda: **T** = teste unitário · **E** = evidência (captura em `docs/evidenc
 ### Observações da verificação manual
 
 - A API real da wger foi consultada no emulador: Força + Peito = 25 exercícios; Hipertrofia + Peito = 89 (90 na API, 1 duplicado removido); Hipertrofia + Pernas = 235 (3 páginas).
-- O aviso de descanso (CA16) não tem captura porque depende de um exercício concluído no dia anterior; está coberto por testes com relógio fixo.
+- Aviso de descanso (CA16) e cache expirado (CA12): o relógio do emulador foi adiantado 1 dia (`settings put global auto_time 0` + `cmd alarm set-time`). Ao escolher Peito, apareceu "Você treinou Peito ontem…" sem bloquear o botão; a lista mostrou primeiro o cache ("Atualizado há 1 dia") e, em seguida, o renovou ("Atualizado agora"). O horário automático foi restaurado depois.
 - A notificação foi exibida com um build temporário de atraso zero (não commitado), porque o WorkManager recusa execução forçada antes do horário agendado.

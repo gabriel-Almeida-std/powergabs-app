@@ -142,7 +142,7 @@ O histórico de execuções, as correções feitas e a tabela critério de aceit
 
 ## Evidências
 
-Capturas do emulador (Android 17 / API 37) em [`docs/evidencias/`](docs/evidencias/):
+Capturas do emulador (Android 17 / API 37) em [`docs/evidencias/`](docs/evidencias/). As capturas 20 a 22 foram feitas com o relógio do emulador adiantado em 1 dia, para simular o treino de "ontem" e o cache vencido:
 
 | # | Tela | # | Tela |
 |---|---|---|---|
@@ -155,7 +155,9 @@ Capturas do emulador (Android 17 / API 37) em [`docs/evidencias/`](docs/evidenci
 | 07 | [Vídeo](docs/evidencias/07-video.png) | 17 | [Tema escuro: lista](docs/evidencias/17-tema-escuro-lista.png) |
 | 08 | [Meu treino](docs/evidencias/08-meu-treino.png) | 18 | [Tema escuro: objetivo](docs/evidencias/18-tema-escuro-objetivo.png) |
 | 09 | [Sobre](docs/evidencias/09-sobre.png) | 19 | [Logout e senha errada](docs/evidencias/19-logout-e-senha-errada.png) |
-| 10 | [Notificação diária](docs/evidencias/10-notificacao.png) | | |
+| 10 | [Notificação diária](docs/evidencias/10-notificacao.png) | 20 | [Aviso de descanso no grupo](docs/evidencias/20-aviso-descanso-grupo.png) |
+| | | 21 | [Cache expirado: mostra o cache primeiro](docs/evidencias/21-cache-expirado-mostra-cache-primeiro.png) |
+| | | 22 | [Cache expirado: renovado em segundo plano](docs/evidencias/22-cache-expirado-renovado.png) |
 
 ## Limitações conhecidas e funcionalidades não implementadas
 
@@ -164,7 +166,6 @@ Capturas do emulador (Android 17 / API 37) em [`docs/evidencias/`](docs/evidenci
 - **Idioma:** nem todo exercício da wger tem tradução em português; nesses casos o nome e a descrição aparecem em inglês.
 - **Vídeos:** poucos exercícios da wger têm vídeo, e ele exige internet. No emulador, o decodificador "goldfish" falhou com esses vídeos; o app prefere o decodificador de software do Android (ver decisões no planejamento).
 - **Horário do lembrete fixo** (18:00); não há tela de configuração.
-- **Aviso de descanso** verificado por testes unitários; não há captura de tela porque exige um treino concluído no dia anterior.
 - **Prescrição geral:** as faixas são referências, não prescrição individual.
 - Fora do escopo: contas e treinos da wger, sincronização na nuvem, planos de dieta, busca livre por texto e login social.
 
