@@ -36,7 +36,7 @@
 - **Relacionado:** RNF06, RNF08, RN17 · Seções 2.2 e 7
 - **Commit:** `feat: adiciona pacote core com resultado, erros, dispatchers e tempo`
 
-### [ ] T05 — Application, Koin e manifesto
+### [x] T05 — Application, Koin e manifesto
 - **Descrição:** `PowerGabsApp` (Koin), `di/AppModule.kt` com `coreModule`, permissões `INTERNET`, `ACCESS_NETWORK_STATE`, `POST_NOTIFICATIONS`.
 - **Pronto quando:** o app abre com o Koin iniciado.
 - **Relacionado:** RNF02 · Seção 10
