@@ -174,3 +174,16 @@ Nova classe: `ExerciseDetailsViewModelTest` (CA17–CA19). Verificado no emulado
 | Correções aplicadas | Nenhuma |
 
 Nova classe: `WorkoutViewModelTest` (CA20–CA22). Verificado no emulador: marcar como feito e registrar esforço 4 de 5.
+
+## 2026-11-24 21:24 — T22: lembrete diário
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 168 |
+| Aprovados | 168 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Teste manual no emulador: o WorkManager recusou a execução forçada antes do horário (comportamento esperado). Para ver a notificação, um build temporário com atraso zero (não commitado) foi instalado; a notificação "Hora de treinar!" apareceu e o código voltou ao atraso calculado. |
+
+Nova classe: `ReminderSchedulerTest` (CA24: KEEP, intervalo de 1 dia e atraso até as 18:00).

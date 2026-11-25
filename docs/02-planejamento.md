@@ -149,7 +149,7 @@ As categorias, os equipamentos e os idiomas foram consultados na especificação
 | Activity Compose / Core KTX | 1.13.0 / 1.19.1 | Template. |
 | Lifecycle (runtime-compose, viewmodel-compose) | 2.11.1 | `collectAsStateWithLifecycle`, `viewModelScope`. |
 | Navigation Compose | 2.10.2 | Rotas type-safe com `@Serializable`. |
-| Koin BOM | 4.2.2 | DI (`koin-android`, `koin-androidx-compose`, `koin-androidx-workmanager`). |
+| Koin BOM | 4.2.2 | DI (`koin-android`, `koin-androidx-compose`). |
 | Coroutines | 1.11.0 | Flow/StateFlow. |
 | kotlinx.serialization | 1.13.0 | JSON da API, rotas e conversores do Room. |
 | Retrofit / OkHttp | 3.0.0 / 5.5.1 | Rede (conversor kotlinx.serialization oficial do Retrofit). |
@@ -160,7 +160,7 @@ As categorias, os equipamentos e os idiomas foram consultados na especificação
 | desugar_jdk_libs | 2.1.5 | `java.time` (`Instant`, `LocalDate`, `ZoneId`) no Android 7 (API 24–25). |
 | JUnit 4 / MockK / coroutines-test / Turbine | 4.13.2 / 1.14.12 / 1.11.0 / 1.2.1 | Testes unitários JVM. |
 
-**Bibliotecas além da tabela do `CLAUDE.md`:** `desugar_jdk_libs` (necessária para usar `java.time` com `minSdk 24`), `material-icons-core` (ícones do conjunto core, autorizado pela identidade visual) e `koin-androidx-workmanager` (injeção no Worker). As três são de suporte, não adicionam funcionalidade.
+**Bibliotecas além da tabela do `CLAUDE.md`:** `desugar_jdk_libs` (necessária para usar `java.time` com `minSdk 24`) e `material-icons-core` (ícones do conjunto core, autorizado pela identidade visual). As duas são de suporte, não adicionam funcionalidade.
 
 ## 5. Modelo de dados (Room)
 
@@ -280,7 +280,7 @@ Decisões:
 | Módulo | Registra | Escopo |
 |---|---|---|
 | `coreModule` | `AppDispatchers`, `TimeProvider`, `NetworkMonitor` | `single` |
-| `dataModule` | `Json`, `OkHttpClient`, `Retrofit`, `WgerApi`, `AppDatabase`, DAOs, `PasswordHasher`, repositórios, `ReminderScheduler`, `DailyReminderWorker` | `single` / `worker` |
+| `dataModule` | `Json`, `OkHttpClient`, `Retrofit`, `WgerApi`, `AppDatabase`, DAOs, `PasswordHasher`, repositórios, `WorkManager`, `ReminderScheduler` | `single` |
 | `domainModule` | casos de uso | `factory` |
 | `presentationModule` | ViewModels (com `parametersOf` para argumentos de rota) | `viewModel` |
 

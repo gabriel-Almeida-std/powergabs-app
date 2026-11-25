@@ -9,6 +9,7 @@ import com.gabriel.powergabs.core.time.TimeProvider
 import com.gabriel.powergabs.data.auth.AuthRepositoryImpl
 import com.gabriel.powergabs.data.auth.PasswordHasher
 import com.gabriel.powergabs.data.local.AppDatabase
+import com.gabriel.powergabs.data.notification.ReminderScheduler
 import com.gabriel.powergabs.domain.repository.AuthRepository
 import com.gabriel.powergabs.data.remote.NetworkFactory
 import com.gabriel.powergabs.data.repository.ExerciseRepositoryImpl
@@ -36,6 +37,7 @@ import com.gabriel.powergabs.presentation.screens.exercises.ExerciseListViewMode
 import com.gabriel.powergabs.presentation.screens.goal.GoalViewModel
 import com.gabriel.powergabs.presentation.screens.musclegroup.MuscleGroupViewModel
 import com.gabriel.powergabs.presentation.screens.workout.WorkoutViewModel
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.factoryOf
@@ -76,6 +78,10 @@ val dataModule = module {
     // Autenticação local.
     single { PasswordHasher() }
     single<AuthRepository> { AuthRepositoryImpl(userDao = get(), hasher = get(), timeProvider = get(), dispatchers = get()) }
+
+    // Lembrete diário (WorkManager).
+    single { WorkManager.getInstance(androidContext()) }
+    single { ReminderScheduler(workManager = get(), timeProvider = get()) }
 }
 
 /** Casos de uso não guardam estado: `factory` cria um novo a cada injeção. */

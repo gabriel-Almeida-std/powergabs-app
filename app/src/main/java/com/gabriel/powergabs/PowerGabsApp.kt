@@ -1,7 +1,10 @@
 package com.gabriel.powergabs
 
 import android.app.Application
+import com.gabriel.powergabs.data.notification.NotificationChannels
+import com.gabriel.powergabs.data.notification.ReminderScheduler
 import com.gabriel.powergabs.di.appModules
+import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -9,7 +12,8 @@ import org.koin.core.logger.Level
 
 /**
  * Ponto de entrada do processo: roda antes de qualquer tela.
- * Inicia o Koin com o contexto da aplicação (nunca o de uma Activity, para não vazar memória).
+ * Inicia o Koin com o contexto da aplicação (nunca o de uma Activity, para não vazar memória),
+ * cria o canal de notificação (API 26+) e agenda o lembrete diário (RF17).
  */
 class PowerGabsApp : Application() {
 
@@ -20,5 +24,7 @@ class PowerGabsApp : Application() {
             androidContext(this@PowerGabsApp)
             modules(appModules)
         }
+        NotificationChannels.create(this)
+        get<ReminderScheduler>().schedule()
     }
 }

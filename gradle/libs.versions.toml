@@ -53,7 +53,6 @@ androidx-media3-ui = { group = "androidx.media3", name = "media3-ui", version.re
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
 koin-android = { group = "io.insert-koin", name = "koin-android" }
 koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
-koin-androidx-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager" }
 
 # Kotlin
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }

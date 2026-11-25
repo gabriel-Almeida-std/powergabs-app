@@ -137,7 +137,7 @@
 - **Relacionado:** RF18 · CA25
 - **Commit:** `feat: implementa tela sobre com atribuicao a wger`
 
-### [ ] T22 — Notificação diária
+### [x] T22 — Notificação diária
 - **Descrição:** canal (API 26+), `DailyReminderWorker`, `ReminderScheduler` com `KEEP`.
 - **Relacionado:** RF17, RN16 · CA24
 - **Commit:** `feat: adiciona lembrete diario com WorkManager`
