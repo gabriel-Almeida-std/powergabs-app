@@ -29,6 +29,8 @@ import com.gabriel.powergabs.domain.usecase.RateEffortUseCase
 import com.gabriel.powergabs.domain.usecase.RefreshExercisesUseCase
 import com.gabriel.powergabs.domain.usecase.RegisterUseCase
 import com.gabriel.powergabs.presentation.navigation.MainViewModel
+import com.gabriel.powergabs.presentation.screens.auth.LoginViewModel
+import com.gabriel.powergabs.presentation.screens.auth.RegisterViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.factoryOf
@@ -90,6 +92,8 @@ val domainModule = module {
 /** ViewModels presos ao ciclo de vida da tela. Argumentos de rota chegam por `parametersOf`. */
 val presentationModule = module {
     viewModelOf(::MainViewModel)
+    viewModelOf(::LoginViewModel)
+    viewModelOf(::RegisterViewModel)
 }
 
 /** Todos os módulos, na ordem em que são carregados pelo [com.gabriel.powergabs.PowerGabsApp]. */

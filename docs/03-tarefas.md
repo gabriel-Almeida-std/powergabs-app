@@ -102,7 +102,7 @@
 - **Relacionado:** RF03, RF16 · Seção 9
 - **Commit:** `feat: adiciona navegacao, faixa offline e componentes de estado`
 
-### [ ] T15 — Telas de login e cadastro
+### [x] T15 — Telas de login e cadastro
 - **Descrição:** `LoginViewModel`, `RegisterViewModel` + telas + testes.
 - **Relacionado:** RF01, RF02, RF04 · CA01–CA04
 - **Commit:** `feat: implementa telas de login e cadastro`

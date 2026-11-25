@@ -96,3 +96,16 @@ Novas classes: `PasswordHasherTest` (RNF03), `AuthRepositoryImplTest` (RF01–RF
 | Correções aplicadas | Nenhuma |
 
 Novas classes: `MainViewModelTest` (RF03, RF04, RF16), `FormattersTest` (badge de prescrição CA07, "atualizado há…", mensagens de erro).
+
+## 2026-11-24 20:53 — T15: telas de login e cadastro
+
+| Item | Valor |
+|---|---|
+| Comando | `./gradlew testDebugUnitTest` |
+| Total | 139 |
+| Aprovados | 139 |
+| Falhas | 0 |
+| Ignorados | 0 |
+| Correções aplicadas | Nenhuma |
+
+Nova classe: `AuthViewModelsTest` (CA01–CA04). Verificado também no emulador: erros de campo no cadastro e entrada no app após criar a conta.

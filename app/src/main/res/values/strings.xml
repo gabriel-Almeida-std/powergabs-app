@@ -26,8 +26,6 @@
     <string name="register_subtitle">A conta fica salva apenas neste aparelho.</string>
     <string name="action_register">Criar conta</string>
     <string name="action_go_to_login">Já tenho conta</string>
-    <string name="action_show_password">Mostrar senha</string>
-    <string name="action_hide_password">Ocultar senha</string>
     <string name="error_email_empty">Informe o e-mail.</string>
     <string name="error_email_invalid">Informe um e-mail válido, como nome@exemplo.com.</string>
     <string name="error_password_empty">Informe a senha.</string>
