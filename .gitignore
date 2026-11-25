@@ -1,0 +1,19 @@
+# Gradle / build
+.gradle/
+build/
+/captures
+.externalNativeBuild
+.cxx
+.kotlin/
+
+# IDE
+*.iml
+.idea/
+
+# Arquivos locais / segredos (nunca versionar)
+local.properties
+google-services.json
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camada monocromática (Android 13+, ícones temáticos). O sistema usa só o formato e aplica a cor do tema; a cor aqui é irrelevante. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Corpo do kettlebell -->
+    <path
+        android:pathData="M33,61a21,21 0 1,0 42,0a21,21 0 1,0 -42,0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5" />
+    <!-- Alça -->
+    <path
+        android:pathData="M41,45V37Q41,28 50,28H58Q67,28 67,37V45"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5" />
+    <!-- Letra G -->
+    <path
+        android:pathData="M60.36,55.64A9,9 0 1,0 63,62H55"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4" />
+</vector>
