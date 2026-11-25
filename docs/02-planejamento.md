@@ -144,7 +144,7 @@ As categorias, os equipamentos e os idiomas foram consultados na especificação
 | Android Gradle Plugin | 9.5.2 | Já usado pelo template; Kotlin embutido. |
 | Kotlin (compose/serialization plugins) | 2.4.21 | Estável mais recente. |
 | KSP | 2.3.14 | Processador do Room. |
-| Compose BOM | 2026.11.01 | Versões alinhadas de Compose/Material 3. |
+| Compose BOM | 2026.09.00 | Versões alinhadas de Compose (1.12) e Material 3 (1.4). O BOM 2026.11.01 exige `compileSdk` 37.1, que não está instalado no ambiente. |
 | material-icons-core | 1.7.8 | Ícones `Icons.Rounded` básicos (sem o pacote "extended"). |
 | Activity Compose / Core KTX | 1.13.0 / 1.19.1 | Template. |
 | Lifecycle (runtime-compose, viewmodel-compose) | 2.11.1 | `collectAsStateWithLifecycle`, `viewModelScope`. |
@@ -314,4 +314,5 @@ Nomes de teste em inglês com crases, padrão Arrange / Act / Assert. Comando: `
 | 24/11/2026 | `java.time` com desugaring. | Datas claras e testáveis com `minSdk 24`. |
 | 24/11/2026 | Categorias, equipamentos e idiomas como constantes. | São fixos na API e já foram confirmados; evita requisições extras. |
 | 24/11/2026 | Descrição HTML convertida para texto simples no mapper. | Compose `Text` não renderiza HTML; texto simples funciona offline e é testável. |
+| 24/11/2026 | Compose BOM 2026.09.00 em vez de 2026.11.01. | O 2026.11.01 (Compose 1.13) exige a plataforma 37.1; o SDK instalado tem a 37.0. |
 | 24/11/2026 | Um único arquivo `AppModule.kt` com os quatro módulos Koin. | Projeto pequeno; mantém a visão de toda a injeção num lugar só. |

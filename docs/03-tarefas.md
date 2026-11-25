@@ -18,7 +18,7 @@
 - **Relacionado:** todas · Seções 1 e 13
 - **Commit:** `docs: adiciona planejamento e decomposicao em tarefas`
 
-### [ ] T02 — Build, dependências e README inicial
+### [x] T02 — Build, dependências e README inicial
 - **Descrição:** atualizar `libs.versions.toml` e `app/build.gradle.kts` com a stack da seção 4 (plugins serialization e KSP, desugaring, `buildConfig`), `.gitattributes` para `gradlew` com LF, remover os testes de exemplo e criar o README inicial.
 - **Pronto quando:** `assembleDebug` e `testDebugUnitTest` rodam com sucesso.
 - **Relacionado:** RNF04, RNF05 · Seção 4
