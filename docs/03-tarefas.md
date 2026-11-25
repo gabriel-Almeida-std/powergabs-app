@@ -30,7 +30,7 @@
 - **Relacionado:** RNF09 · Seção 9.3
 - **Commit:** `feat: aplica tema da identidade visual`
 
-### [ ] T04 — Pacote core
+### [x] T04 — Pacote core
 - **Descrição:** `AppResult`, `AppError`, `AppDispatchers`, `NetworkMonitor` + `AndroidNetworkMonitor`, `TimeProvider` + `SystemTimeProvider`.
 - **Pronto quando:** compila; nenhuma dependência de camadas superiores.
 - **Relacionado:** RNF06, RNF08, RN17 · Seções 2.2 e 7
